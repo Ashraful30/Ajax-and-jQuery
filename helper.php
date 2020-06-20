@@ -52,4 +52,83 @@
 		}
 	}
 
+	if (isset($_POST['editID'])) {
+		
+		$id=$_POST['editID'];
+
+		$sql="SELECT * FROM user WHERE id='$id'";
+		$res=mysqli_query($conn,$sql);
+
+		if ($res) {
+			
+			while ($row=mysqli_fetch_assoc($res)) {
+				
+				$user_data[0]=$row['id'];
+				$user_data[1]=$row['name'];
+				$user_data[2]=$row['email'];
+				//echo $row['name'];
+			}
+			
+			echo json_encode($user_data);
+
+		}
+		else{
+			echo "Error in data fetch";	
+		}
+	}
+
+	if (isset($_POST['update_id'])) {
+
+		$id=$_POST['update_id'];
+		$name=$_POST['update_name'];
+		$email=$_POST['update_email'];
+
+		$sql="UPDATE user SET name='$name' , email='$email' WHERE id='$id'";
+
+		$res=mysqli_query($conn,$sql);
+
+		if ($res) {
+			
+			echo '<p class="alert alert-success text-center alert-dismissible fade show" role="alert" style="width: 100%;">
+				   User info updated successfully.
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span></button>
+				</p>';
+		}
+		else{
+			echo '<p class="alert alert-danger text-center alert-dismissible fade show" role="alert" style="width: 100%;">
+				   Failed to update.
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span></button>
+				</p>';	
+		}
+	}
+
+
+	if (isset($_POST['delete_id'])) {
+
+		$id=$_POST['delete_id'];
+		
+
+		$sql="DELETE FROM user WHERE id='$id'";
+
+		$res=mysqli_query($conn,$sql);
+
+		if ($res) {
+			
+			echo '<p class="alert alert-success text-center alert-dismissible fade show" role="alert" style="width: 100%;">
+				   User info Deleted successfully.
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span></button>
+				</p>';
+		}
+		else{
+			echo '<p class="alert alert-danger text-center alert-dismissible fade show" role="alert" style="width: 100%;">
+				   Failed to delete.
+				  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				    <span aria-hidden="true">&times;</span></button>
+				</p>';	
+		}
+	}
+
 ?>

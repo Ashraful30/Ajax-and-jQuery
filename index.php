@@ -79,7 +79,82 @@
 		</div>
 	</div>
 
+<!-- Edit User Modal -->
 
+	<div class="modal fade" id="updateUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+	aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" >
+				<div class="modal-header" style="border: none;">
+					<div class="container">
+						<div class="row com-sm-12">
+							<h5 class="modal-titles"><i class="fas fa-lg fa-user"></i> Update User</h5>
+							<button type="button" class="close pb-4" data-dismiss="modal" >
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-body mx-3">
+					
+					<form >
+	                    <div class="form-group row">
+	                        <label for="name" class="col-sm-3 col-from-label">Name</label>
+	                        <div class="col-sm-9">
+	                            <input type="text" class="form-control" name="name" id="updateName" placeholder="User Name" required>
+	                        </div>
+	                    </div>
+
+	                    <div class="form-group row">
+	                        <label for="email" class="col-sm-3 col-from-label">Email</label>
+	                        <div class="col-sm-9">
+	                            <input type="text" class="form-control" name="email" id="updateEmail" placeholder="User Email" required>
+	                        </div>
+	                    </div>
+	                    <input type="hidden" class="form-control" name="id" id="updateID">
+					</form>
+					<div class="modal-footer pt-4" style="border-top: none">
+			        	<button type="button" class="btn btn-secondary" id="btn_close" data-dismiss="modal">Close</button>
+			        	<!-- <button type="submit" name="add" id="add_user" class="btn btn-primary">Add User</button> -->
+			        	<button type="button" name="add" id="update_user" class="btn btn-primary">Update User</button>
+			        </div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+
+	
+	<!-- Delete User Modal -->
+
+	<div class="modal fade" id="deleteUser" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+		aria-hidden="true">	
+		<div class="modal-dialog" role="document">
+			<div class="modal-content" >
+				<div class="modal-header" style="border: none;">
+					<div class="container">
+						<div class="row">
+							<h5 class="modal-title">Delete User <i class="far fa-trash-alt"></i></h5>
+							<button type="button" class="close pb-4" data-dismiss="modal" >
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="modal-body mx-3">
+					<p><i class="fas fa-trash"></i> Are you sure you want to delete?</p>
+					
+					<div class="modal-footer pt-4" style="border-top: none">
+				        <input type="hidden" id="del_id">
+			        	<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+			        	<button type="button" name="delete" id="delete_user" class="btn btn-danger">Delete</button>
+				      
+			      </div>
+				</div>	
+			</div>
+		</div>
+	</div>
 	
 
 	<script src="js/jquery.min.js"></script>
